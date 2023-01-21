@@ -1,0 +1,98 @@
+﻿@model MVCTESTCRUD.Models.Customer
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAllCustomerDetails</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <div style="font-family:Arial Black;">
+        <h2 style="background-color: Yellow;color: Blue; text-align: center; font-style: oblique">MVC Customer CRUD Operation</h2>
+        <p>
+            @Html.ActionLink(linkText: "New Customer", actionName: "InsertCustomer", controllerName: "Customer")
+        </p>
+        <br />
+        <br />
+        <table border="1" align="center">
+            <tr>
+                <th style="background-color:Yellow;color:blue">
+                    @Html.DisplayNameFor(model => model.Name)
+
+                </th>
+                <th style="background-color: Yellow;color: blue">
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+
+                <th style="background-color: Yellow;color: blue">
+                    @Html.DisplayNameFor(model => model.date)
+                </th>
+                <th style="background-color: Yellow;color: blue">
+                    Operation
+                </th>
+            </tr>
+
+            @foreach (var item in Model.ShowallCustomer)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td>
+                    
+                    <td>
+
+                        @Html.ActionLink("Modify", "Edit", new { id = item.CustomerID }) |
+
+                        @Html.ActionLink("Detail", "Details", new { id = item.CustomerID }) |
+                        @Html.ActionLink("Remove", "Delete", new { id = item.CustomerID },
+                        new { onclick = "return confirm('Are sure wants to delete?');" })
+                    </td>
+                </tr>
+
+            }
+        </table>
+        @if (TempData["result1"] != null)
+        {
+            <script type="text/javascript">
+
+                alert("Record Is Inserted Successfully");
+            </script>
+
+        }
+        @if (TempData["result2"] != null)
+        {
+            <script type="text/javascript">
+
+                alert("Record Is Updated Successfully");
+            </script>
+
+        }
+        @if (TempData["result3"] != null)
+        {
+            <script type="text/javascript">
+
+                alert("Record Is Deleted Successfully");
+            </script>
+
+        }
+        <br />
+        <br />
+        <footer>
+            <p style="background-color: Yellow;text-align:center ; color:blue">© @DateTime.Now.ToLocalTime()</p>
+        </footer>
+    </div>
+</body>
+</html>  

@@ -1,0 +1,43 @@
+﻿@model MVCTESTCRUD.Models.Customer
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend style="font-family:Arial Black;color:Green">Customer Report</legend>
+
+        <div class="display-label" style="font-family:Arial Black">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="display-field" style="color:Blue">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+
+        <div class="display-label" style="font-family:Arial Black">
+            @Html.DisplayNameFor(model => model.Active)
+        </div>
+        <div class="display-field" style="color:Blue">
+            @Html.DisplayFor(model => model.Active)
+        </div>
+
+        <div class="display-label" style="font-family:Arial Black">
+            @Html.DisplayNameFor(model => model.date)
+        </div>
+        <div class="display-field" style="color:Blue">
+            @Html.DisplayFor(model => model.date)
+        </div>
+    </fieldset>
+    <p style="color:Blue;font-family:Arial">
+        @Html.ActionLink("Back to Customer Records", "ShowAllCustomerDetails")
+    </p>
+</body>
+</html> 

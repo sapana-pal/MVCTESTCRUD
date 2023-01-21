@@ -1,0 +1,52 @@
+﻿@model MVCTESTCRUD.Models.Customer
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>InsertCustomer</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @using (Html.BeginForm())
+    {
+
+        @Html.ValidationSummary(true)
+<fieldset>
+    <legend style="font-family:Arial Black;color:Green">Customer</legend>
+    <div class="editor-label" style="font-family:Arial Black">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field" style="color:Red;font-family:Arial">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div class="editor-label" style="font-family:Arial Black">
+        @Html.LabelFor(model => model.Active)
+    </div>
+    <div class="editor-field" style="color:Red;font-family:Arial">
+        @Html.EditorFor(model => model.Active)
+        @Html.ValidationMessageFor(model => model.Active)
+    </div>
+    <div class="editor-label" style="font-family:Arial Black">
+        @Html.LabelFor(model => model.date)
+    </div>
+    <div class="editor-field" style="color:Red;font-family:Arial">
+        @Html.EditorFor(model => model.date)
+        @Html.ValidationMessageFor(model => model.date)
+    </div>
+    <p>
+        <input type="submit" value="Insert" style="color:Navy;font-family:Arial; font-size:large" />
+        <input type="reset" value="Reset" style="color:Navy;font-family:Arial; font-size:large" />
+    </p>
+</fieldset>
+    }
+    <div style="color:Blue;font-family:Arial">
+        @Html.ActionLink("Back to Customer Records", "ShowAllCustomerDetails")
+    </div>
+</body>
+</html> 
